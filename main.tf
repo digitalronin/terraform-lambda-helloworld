@@ -34,3 +34,12 @@ resource "aws_lambda_function" "helloworld" {
     timeout = 3
     source_code_hash = "${base64sha256(file("helloworld.zip"))}"
 }
+
+# API
+
+resource "aws_api_gateway_rest_api" "HelloWorldAPI" {
+  name        = "HelloWorldAPI"
+  description = "Endpoint for the Hello World function"
+}
+
+
