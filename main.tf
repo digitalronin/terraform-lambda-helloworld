@@ -42,4 +42,10 @@ resource "aws_api_gateway_rest_api" "HelloWorldAPI" {
   description = "Endpoint for the Hello World function"
 }
 
+# API Gateway Resource
 
+resource "aws_api_gateway_resource" "HelloWorldResource" {
+  rest_api_id = "${aws_api_gateway_rest_api.HelloWorldAPI.id}"
+  parent_id   = "${aws_api_gateway_rest_api.HelloWorldAPI.root_resource_id}"
+  path_part   = "helloworldresource"
+}
