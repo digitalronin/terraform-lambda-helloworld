@@ -89,6 +89,7 @@ resource "aws_api_gateway_method_response" "200" {
 }
 
 resource "aws_api_gateway_integration_response" "HelloWorldPostIntegrationResponse" {
+  depends_on  = ["aws_api_gateway_integration.HelloWorldPostIntegration"]
   rest_api_id = "${aws_api_gateway_rest_api.HelloWorldAPI.id}"
   resource_id = "${aws_api_gateway_resource.HelloWorldResource.id}"
   http_method = "${aws_api_gateway_method.HelloWorldPostMethod.http_method}"
